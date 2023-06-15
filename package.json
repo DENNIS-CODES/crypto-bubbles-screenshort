@@ -1,0 +1,23 @@
+{
+  "name": "crypto-bubbles-screenshort",
+  "version": "1.0.0",
+  "description": "a bot that takes screen short of crypto bubbles site and post it into telegram",
+  "main": "index.ts",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node-dev src/index.ts"
+  },
+  "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/node-cron": "^3.0.7",
+    "@types/node-telegram-bot-api": "^0.61.6",
+    "dotenv": "^16.1.4",
+    "node-cron": "^3.0.2",
+    "node-telegram-bot-api": "^0.61.0",
+    "puppeteer": "^20.7.1",
+    "telegraf": "^4.12.2",
+    "ts-node-dev": "^2.0.0",
+    "tsc": "^2.0.4",
+    "typescript": "^5.1.3"
+  }
+}
