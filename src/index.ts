@@ -20,7 +20,7 @@ const main = async () => {
 main()
 
 const Start = async () => {
-    cron.schedule('*/10 * * * *', screenshotTask).start();
-    // task.start();
+    cron.schedule('*/5 * * * *', screenshotTask).start();
+    task.start();
 }
 Start()
