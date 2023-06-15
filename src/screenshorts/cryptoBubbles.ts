@@ -3,7 +3,9 @@ import { sendPhotoToWhitelistedUsers } from "../telegram/bot";
 // Define the screenshot task
 export const screenshotTask = async () => {
     // Step 1: Launch Puppeteer and open the page
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        headless: true,
+    });
     const page = await browser.newPage();
     const watchDog = page.waitForFunction('window.innerWidth > 1300');
     await page.setViewport({ width: 1920, height: 1080 });
