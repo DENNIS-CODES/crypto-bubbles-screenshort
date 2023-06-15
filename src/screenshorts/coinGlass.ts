@@ -15,7 +15,7 @@ export const task = cron.schedule('*/5 * * * *', async () => {
     await page.goto('https://www.coinglass.com/', { waitUntil: 'networkidle0' });
 
     // Wait for a bit for the settings to take effect
-    await page.waitForTimeout(3000);
+    await new Promise(r => setTimeout(r, 3000));
 
     // Click on the div to switch to dark mode
     const darkModeToggle = '.shou.MuiBox-root.cg-style-14d0z92';
