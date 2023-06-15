@@ -5,7 +5,7 @@ import { sendPhotoToWhitelistedUsers } from '../telegram';
 export const task = cron.schedule('*/5 * * * *', async () => {
     // Start the browser and create a new page
     const browser = await puppeteer.launch({
-        headless: true,
+        headless: 'new',
     });
     const page = await browser.newPage();
     const watchDog = page.waitForFunction('window.innerWidth > 1300');
