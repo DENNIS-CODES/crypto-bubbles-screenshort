@@ -22,12 +22,20 @@ export const task = cron.schedule('*/15 * * * *', async () => {
     await new Promise(r => setTimeout(r, 3000));
 
     // Select the specific element to screenshot
-    const element = await page.$('.mbh.MuiBox-root.cg-style-1mh511h');
+    const element1 = await page.$('.mbh.MuiBox-root.cg-style-1mh511h');
+    const element2 = await page.$('.ant-table-wrapper');
 
-    if (element) {
+    if (element1) {
         // Take a screenshot of the selected element
-        const screenshot = await element.screenshot();
-        await browser.close();
-        await sendPhotoToWhitelistedUsers(screenshot);
+        const screenshot1 = await element1.screenshot();
+        await sendPhotoToWhitelistedUsers(screenshot1);
     }
-});
+
+    if (element2) {
+        // Take a screenshot of the second element
+        const screenshot2 = await element2.screenshot();
+        await sendPhotoToWhitelistedUsers(screenshot2);
+    }
+
+    await browser.close();
+}); 

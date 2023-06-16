@@ -1,6 +1,6 @@
 import { task } from './screenshorts';
 import { screenshotTask } from './screenshorts/cryptoBubbles';
-import { bot, sendMessage } from './telegram/bot';
+import { sendMessage } from './telegram/bot';
 import cron from 'node-cron';
 
 const main = async () => {
