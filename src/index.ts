@@ -1,4 +1,4 @@
-import { task } from './screenshorts';
+import { CoinMarketTask, task } from './screenshorts';
 import { screenshotTask } from './screenshorts/cryptoBubbles';
 import { sendMessage } from './telegram/bot';
 import cron from 'node-cron';
@@ -22,5 +22,6 @@ main()
 const Start = async () => {
     cron.schedule('*/15 * * * *', screenshotTask).start();
     task.start();
+    CoinMarketTask.start()
 }
 Start()
