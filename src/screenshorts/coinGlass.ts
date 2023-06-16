@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 import cron from 'node-cron';
-import { sendPhotoToWhitelistedUsers } from '../telegram';
+import { sendMessage, sendPhotoToWhitelistedUsers } from '../telegram';
 
 export const task = cron.schedule('*/15 * * * *', async () => {
     const browser = await puppeteer.launch({
@@ -34,6 +34,7 @@ export const task = cron.schedule('*/15 * * * *', async () => {
     if (element2) {
         // Take a screenshot of the second element
         const screenshot2 = await element2.screenshot();
+        sendMessage('CoinGlass');
         await sendPhotoToWhitelistedUsers(screenshot2);
     }
 

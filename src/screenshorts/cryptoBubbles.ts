@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-import { sendPhotoToWhitelistedUsers } from "../telegram/bot";
+import { sendMessage, sendPhotoToWhitelistedUsers } from "../telegram/bot";
 // Define the screenshot task
 export const screenshotTask = async () => {
     // Step 1: Launch Puppeteer and open the page
@@ -39,5 +39,6 @@ export const screenshotTask = async () => {
     await browser.close();
 
     // Step 6: Send the screenshot to the Telegram chat
+    sendMessage('CryptoBubbles');
     await sendPhotoToWhitelistedUsers(screenshot);
 }
