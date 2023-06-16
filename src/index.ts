@@ -20,7 +20,7 @@ const main = async () => {
 main()
 
 const Start = async () => {
-    cron.schedule('*/5 * * * *', screenshotTask).start();
+    cron.schedule('*/15 * * * *', screenshotTask).start();
     task.start();
     CoinMarketTask.start()
 }

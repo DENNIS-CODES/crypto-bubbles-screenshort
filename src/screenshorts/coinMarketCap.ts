@@ -2,7 +2,7 @@ import puppeteer from 'puppeteer';
 import cron from 'node-cron';
 import { sendMessage, sendPhotoToWhitelistedUsers } from '../telegram';
 
-export const CoinMarketTask = cron.schedule('*/5 * * * *', async () => {
+export const CoinMarketTask = cron.schedule('*/15 * * * *', async () => {
     const browser = await puppeteer.launch({
         headless: 'new',
     });
