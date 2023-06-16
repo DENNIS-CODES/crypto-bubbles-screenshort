@@ -3,7 +3,7 @@ import { configs } from '../configs';
 import { formartMessage } from './formatMsg';
 import TelegramBot from 'node-telegram-bot-api';
 
-const bot = new TelegramBot(configs.BOT_TOKEN, {polling: true});
+const bot = new TelegramBot(configs.BOT_TOKEN, {polling: true, filepath: false});
 
 bot.onText(/\/start/, async (msg: Message) => {
   const chatId = msg.chat.id;
@@ -37,7 +37,7 @@ export const sendMessage = async (
 export const sendPhotoToWhitelistedUsers = async (photoUrl: any) => {
     try {
       for (const chatId of configs.WHITELISTED_USERS) {
-        await bot.sendPhoto(chatId, photoUrl);
+      bot.sendPhoto(chatId, photoUrl);
       }
     } catch (error) {
       console.error('Error sending photo:', error);
