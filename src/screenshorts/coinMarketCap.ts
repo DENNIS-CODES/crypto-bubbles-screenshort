@@ -22,7 +22,7 @@ export const CoinMarketTask = cron.schedule('*/5 * * * *', async () => {
     await new Promise(r => setTimeout(r, 3000));
 
     // Select the specific element to screenshot
-    const element = await page.$('.uikit-col-md-8.uikit-col-sm-16');
+    const element = await page.$('.uikit-col-md-8 uikit-col-sm-16');
 
     if (element) {
         // Take a screenshot of the selected element
