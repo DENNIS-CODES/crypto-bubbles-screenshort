@@ -22,13 +22,13 @@ export const CoinMarketTask = cron.schedule('*/15 * * * *', async () => {
     await new Promise(r => setTimeout(r, 3000));
 
     // Select the specific element to screenshot
-    const element = await page.$('.uikit-col-md-8 uikit-col-sm-16');
+    const element = await page.$('.sc-fbf6f08a-0.fvFzkg.table-wrap');
 
     if (element) {
         // Take a screenshot of the selected element
         const screenshot = await element.screenshot();
-        await browser.close();
         sendMessage('CoinMarketCap');
         await sendPhotoToWhitelistedUsers(screenshot);
+        await browser.close();
     }
 });

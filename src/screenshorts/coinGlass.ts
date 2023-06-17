@@ -37,6 +37,5 @@ export const task = cron.schedule('*/15 * * * *', async () => {
         const screenshot2 = await element2.screenshot();
         await sendPhotoToWhitelistedUsers(screenshot2);
     }
-
     await browser.close();
 }); 
