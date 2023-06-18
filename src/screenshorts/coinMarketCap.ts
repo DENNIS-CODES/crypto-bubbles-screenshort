@@ -17,7 +17,7 @@ export const CoinMarketTask = cron.schedule('*/15 * * * *', async () => {
         await new Promise(r => setTimeout(r, 3000));
 
         // Click on the div to switch to dark mode
-        const darkModeToggle = 'button.sc-476bb07-0.sc-8aef48ae-6.bBHpMZ.cmc-theme-picker.cmc-theme-picker--night';
+        const darkModeToggle = '.sc-476bb07-0.sc-8aef48ae-6.iFHkOn.cmc-theme-picker.cmc-theme-picker--day';
         await page.click(darkModeToggle);
 
         // Wait for a bit for the dark mode to take effect
