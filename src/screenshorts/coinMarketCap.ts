@@ -27,10 +27,9 @@ export const CoinMarketTask = cron.schedule('*/15 * * * *', async () => {
         const element = await page.$('.sc-fbf6f08a-0.fvFzkg.table-wrap');
 
         if (element) {
-            sendMessage('CoinMarketCap');
             // Take a screenshot of the selected element
             const screenshot = await element.screenshot({ encoding: 'binary' }); // Added screenshot options
-            await sendPhotoToWhitelistedUsers(screenshot);
+            await sendPhotoToWhitelistedUsers(screenshot).then(() => sendMessage('CoinMarketCap')).catch((error) => console.log(error));
         }
 
         await browser.close();

@@ -39,6 +39,5 @@ export const screenshotTask = async () => {
     await browser.close();
 
     // Step 6: Send the screenshot to the Telegram chat
-    sendMessage('CryptoBubbles');
-    await sendPhotoToWhitelistedUsers(screenshot);
+    await sendPhotoToWhitelistedUsers(screenshot).then(() => sendMessage('CryptoBubbles')).catch((error) => console.log(error));
 }

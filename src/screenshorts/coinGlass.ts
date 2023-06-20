@@ -25,11 +25,10 @@ export const task = cron.schedule('*/15 * * * *', async () => {
     const element1 = await page.$('.mbh.MuiBox-root.cg-style-1mh511h');
     const element2 = await page.$('.ant-table-wrapper');
 
-    sendMessage('CoinGlass');
     if (element1) {
         // Take a screenshot of the selected element
         const screenshot1 = await element1.screenshot();
-        await sendPhotoToWhitelistedUsers(screenshot1);
+        await sendPhotoToWhitelistedUsers(screenshot1).then(() => sendMessage('CoinGlass')).catch((error) => console.log(error));
     }
 
     if (element2) {
