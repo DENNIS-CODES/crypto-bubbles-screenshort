@@ -10,7 +10,7 @@ export const CoinMarketTask = cron.schedule('*/15 * * * *', async () => {
         });
         const page = await browser.newPage();
 
-        await page.setViewport({ width: 1920, height: 1080, deviceScaleFactor: 2 });
+        await page.setViewport({ width: 1200, height: 800, deviceScaleFactor: 2 });
         await page.goto('https://coinmarketcap.com/gainers-losers/', { waitUntil: 'networkidle0' });
 
         // Wait for a bit for the settings to take effect
